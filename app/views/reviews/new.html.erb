@@ -1,0 +1,20 @@
+<h1>Add a Review for <%= @review.ice_cream.flavor %> - <%= @review.ice_cream.brand.name %> </h1>
+
+<%= form_for( @review) do |f| %>
+	<div>
+		<%= f.label :stars %>
+		<%= f.number_field :stars, min: 0, max: 5 %>
+	</div>
+	<div>
+		<%= f.label :title %>
+		<%= f.text_field :title%>
+	</div>
+	<div>
+		<%= f.label :content %>
+		<%= f.text_field :content, size: "25x10" %>
+	</div>
+	<div>
+		<%= f.hidden_field :ice_cream_id %>
+		</div>
+		<%= f.submit  %>
+<% end %>

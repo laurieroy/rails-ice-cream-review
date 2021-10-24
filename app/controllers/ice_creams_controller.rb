@@ -1,4 +1,8 @@
 class IceCreamsController < ApplicationController
+	def index
+		@ice_creams = IceCream.all
+	end
+
 	def new
 		@ice_cream = IceCream.new
 		@ice_cream.build_brand
