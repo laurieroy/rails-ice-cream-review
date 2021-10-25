@@ -3,6 +3,6 @@ class Review < ApplicationRecord
   belongs_to :user
 
   validates :title, presence: true
-  validates :stars, numericality: true, { in: 0..5 }
+  validates :stars, numericality: { in: 0..6 }
 
 end
