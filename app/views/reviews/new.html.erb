@@ -1,5 +1,7 @@
 <h1>Add a Review for <%= @review.ice_cream.flavor %> - <%= @review.ice_cream.brand.name %> </h1>
 
+<%= render partial: "layouts/errors", locals: {object: @review} %>
+
 <%= form_for(@review) do |f| %>
 @byebug
 	<div>
