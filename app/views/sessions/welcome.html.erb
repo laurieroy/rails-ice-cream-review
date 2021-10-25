@@ -1,5 +1,11 @@
 <h1>Welcome to Ice Cream Social!</h1>
 
 <p>
-Please <%= link_to "Login", login_path %> to review an ice cream!
+Please login to review an ice cream!
+</p>
+
+<p>
+	<%= link_to "Login", login_path %>	
+	<%= link_to "Signup", signup_path %>	
+	<%= link_to "Sign in with Google", "/auth/google_oauth2" %>	
 </p>
