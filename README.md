@@ -31,5 +31,9 @@ Models:
 	- content
 
 	Ruby 2.7.2 on Rails 6.1.4.1, PG 13.2
+	
 	auth: roll-your-own with bcrypt
+
+	Add google login with omniauth
+
 
