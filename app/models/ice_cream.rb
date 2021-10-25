@@ -10,6 +10,8 @@ class IceCream < ApplicationRecord
   validates :flavor, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 50}
   validate :not_a_duplicate
 
+  scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(stars)')}
+
   def brand_attributes=(attributes)
     brand = Brand.find_or_create_by(attributes) if !attributes['name'].empty?
   end
@@ -24,5 +26,9 @@ class IceCream < ApplicationRecord
     if !!ice_cream && ice_cream != self
       errors.add(:flavor, 'has already been added for that brand')
     end
+  end
+
+  def self.alpha
+    order(:flavor)
   end
 end

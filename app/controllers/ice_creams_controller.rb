@@ -1,6 +1,6 @@
 class IceCreamsController < ApplicationController
 	def index
-		@ice_creams = IceCream.all
+		@ice_creams = IceCream.order_by_rating.includes(:brand)
 	end
 
 	def new
@@ -19,6 +19,7 @@ class IceCreamsController < ApplicationController
 	end
 
 	def show
+		@ice_cream = IceCream.find_by_id(params[:id])
 	end
 
 	private
