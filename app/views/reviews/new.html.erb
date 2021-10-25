@@ -3,7 +3,14 @@
 <%= render partial: "layouts/errors", locals: {object: @review} %>
 
 <%= form_for(@review) do |f| %>
-@byebug
+<% if params[:ice_cream_id] %>
+	<%= f.hidden_field :ice_cream_id %>
+<% else %>
+	<div>
+		<%= f.label :ice_cream_id, "Select an Ice Cream" %>
+		<%= f.collection_select :ice_cream_id, IceCream.all, :id, :flavor_and_brand, include_blank: true %>
+	</div>
+<% end %>
 	<div>
 		<%= f.label :stars %>
 		<%= f.number_field :stars, min: 0, max: 5 %>
@@ -19,7 +26,6 @@
 		<%= f.text_area :content, size: "25x10" %>
 	</div>
 	<br>
-	<%= f.hidden_field :ice_cream_id %>
 
 	<%= f.submit %>
 <% end %>

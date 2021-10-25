@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   resources :brands
+  resources :reviews
   resources :ice_creams do
     resources :reviews, only: %i[new index]
   end
-  resources :users
+  resources :users, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
